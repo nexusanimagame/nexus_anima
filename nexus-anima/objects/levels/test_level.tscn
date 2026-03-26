@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bw65bpmmej48k"]
+
+[ext_resource type="PackedScene" uid="uid://e4mhnxk3ju8l" path="res://objects/players/player.tscn" id="1_wl803"]
+
+[node name="test_level" type="Node2D" unique_id=1593682858]
+
+[node name="ground_0" type="TileMapLayer" parent="." unique_id=1998694207]
+z_index = -1
+
+[node name="ground_1" type="TileMapLayer" parent="." unique_id=942505486]
+z_index = -1
+
+[node name="ground_2" type="TileMapLayer" parent="." unique_id=496567109]
+z_index = -1
+
+[node name="obstacles" type="TileMapLayer" parent="." unique_id=263482428]
+y_sort_enabled = true
+
+[node name="uphead" type="TileMapLayer" parent="." unique_id=870690785]
+z_index = 1
+
+[node name="player" parent="." unique_id=1148574738 instance=ExtResource("1_wl803")]
