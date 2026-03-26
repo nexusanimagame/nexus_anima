@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bper2dpocihye"]
+
+[ext_resource type="Texture2D" uid="uid://cx0mv1y4dltkl" path="res://assets/talesets/common/exterior/tree/thicket_0.png" id="1_4i0ew"]
+
+[node name="thicket_0" type="StaticBody2D" unique_id=1997597289]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=428128328]
+y_sort_enabled = true
+texture = ExtResource("1_4i0ew")
+offset = Vector2(0, -10)
