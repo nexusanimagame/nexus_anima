@@ -638,9 +638,11 @@ animations = [{
 size = Vector2(16, 4)
 
 [node name="player" type="CharacterBody2D" unique_id=1148574738]
+y_sort_enabled = true
 script = ExtResource("1_1vx3j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=96629763]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_0xnfn")
 animation = &"break_move_side"
 offset = Vector2(0, -16)

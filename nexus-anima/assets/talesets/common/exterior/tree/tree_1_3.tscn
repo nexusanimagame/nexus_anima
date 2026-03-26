@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://di0072pyt8uvl"]
+
+[ext_resource type="Texture2D" uid="uid://ddn8jpt31njkp" path="res://assets/talesets/common/exterior/tree/tree_1_Size_04.png" id="1_4op4y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mm4ng"]
+size = Vector2(28, 16)
+
+[node name="tree_1_3" type="StaticBody2D" unique_id=514822547]
+y_sort_enabled = true
+constant_linear_velocity = Vector2(0, -60)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1038544924]
+y_sort_enabled = true
+texture = ExtResource("1_4op4y")
+offset = Vector2(0, -60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=81973777]
+position = Vector2(-2, -4)
+shape = SubResource("RectangleShape2D_mm4ng")

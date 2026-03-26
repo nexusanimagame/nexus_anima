@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 # Velocidades calculadas para sprites 16x32 em 640x360
-@export var walk_speed: float = 80.0
-@export var run_speed: float = 145.0
+@export var walk_speed: float = 50.0
+@export var run_speed: float = 100.0
 @export var friction: float = 800.0
 
 var last_direction: Vector2 = Vector2.DOWN
