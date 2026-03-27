@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://gf3drjsx5vti"]
+
+[ext_resource type="Script" uid="uid://c38dwrfatwhvh" path="res://dialogue_ui.gd" id="1_fhybf"]
+
+[node name="DialogueUI" type="CanvasLayer" unique_id=1360771935 groups=["dialogue_ui"]]
+script = ExtResource("1_fhybf")
+
+[node name="Fade" type="ColorRect" parent="." unique_id=843230989]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="DialogBox" type="Panel" parent="." unique_id=1429587903]
+modulate = Color(18.892157, 18.892157, 18.892157, 1)
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogBox" unique_id=1216546253]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+bbcode_enabled = true

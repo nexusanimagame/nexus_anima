@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dr3c4eg3x5o52" path="res://assets/sprites/player_base_sprites/player_base_16x32/player_base_idle.png" id="3_cs10d"]
 [ext_resource type="Texture2D" uid="uid://dganm2s6w65eq" path="res://assets/sprites/player_base_sprites/player_base_16x32/player_base_run.png" id="4_ivfjo"]
 [ext_resource type="Texture2D" uid="uid://ynu5jxaf2phn" path="res://assets/sprites/player_base_sprites/player_base_16x32/player_base_walk.png" id="5_mo7fy"]
-[ext_resource type="Texture2D" uid="uid://c74np720tqdt4" path="res://assets/sprites/player_base_sprites/player_base_16x32/player_base_portrait.png" id="6_khep2"]
+[ext_resource type="Texture2D" uid="uid://51kw02reu1f5" path="res://assets/sprites/player_base_sprites/player_base_16x32/notification_sprite - Copia.png" id="6_khep2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cw3wl"]
 atlas = ExtResource("2_khep2")
@@ -638,6 +638,28 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5kaev"]
 size = Vector2(16, 4)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs10d"]
+atlas = ExtResource("6_khep2")
+region = Rect2(0, 28, 24, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivfjo"]
+atlas = ExtResource("6_khep2")
+region = Rect2(64, 28, 24, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mo7fy"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_cs10d")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_ivfjo")
+}],
+"loop": true,
+"name": &"points",
+"speed": 5.0
+}]
+
 [node name="npc_base" type="CharacterBody2D" unique_id=1646832024]
 script = ExtResource("1_31k7x")
 
@@ -651,50 +673,9 @@ offset = Vector2(0, -16)
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_5kaev")
 
-[node name="Dialogue" type="CanvasLayer" parent="." unique_id=2022304671 groups=["dialogue_ui"]]
-
-[node name="Background" type="ColorRect" parent="Dialogue" unique_id=691166262]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.39215687)
-
-[node name="Speaker_Icon" type="TextureRect" parent="Dialogue" unique_id=119540973]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -140.0
-offset_right = -40.0
-offset_bottom = 200.0
-grow_horizontal = 0
-texture = ExtResource("6_khep2")
-
-[node name="Dialog_Box" type="Panel" parent="Dialogue" unique_id=1904752882]
-modulate = Color(18.892157, 18.892157, 18.892157, 0.39215687)
-self_modulate = Color(18.892157, 18.892157, 18.892157, 0.39215687)
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = -144.0
-offset_right = -4.0
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Dialogue/Dialog_Box" unique_id=290034530]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 627.0
-offset_bottom = 135.0
-theme_override_colors/default_color = Color(18.892002, 18.892002, 18.892002, 1)
-theme_override_colors/font_selected_color = Color(2.2709172, 2.2709172, 2.2709172, 0)
-theme_override_colors/selection_color = Color(0.09031202, 0.09031202, 0.9217038, 0.8)
-text = "Ola! Eu sou um NPC para testes..."
-
-[node name="Timer" type="Timer" parent="Dialogue/Dialog_Box" unique_id=1013077666]
-wait_time = 0.2
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=993528937]
+z_index = 1
+position = Vector2(-2, -37)
+sprite_frames = SubResource("SpriteFrames_mo7fy")
+animation = &"points"
+frame_progress = 0.84943485
