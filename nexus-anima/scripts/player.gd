@@ -5,16 +5,27 @@ extends CharacterBody2D
 @export var run_speed: float = 100.0
 @export var friction: float = 800.0
 
+# NOVO: Arraste aqui o seu player_skin_tone_1.tres no Inspetor para ser o padrão
+@export var default_skin: SpriteFrames
+
 var last_direction: Vector2 = Vector2.DOWN
 var is_breaking: bool = false
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+
 func _ready() -> void:
+	# Adiciona ao grupo para o menu encontrar o player facilmente
+	add_to_group("player")
+	
+	# Aplica a skin padrão se ela estiver definida no Inspetor
+	if default_skin:
+		anim.sprite_frames = default_skin
+	
 	# Garante que a direção inicial seja explicitamente para baixo (frente)
 	last_direction = Vector2.DOWN
-	# Atualiza a animação imediatamente para não esperar o primeiro frame de movimento
+	# Atualiza a animação imediatamente
 	update_animation(Vector2.ZERO)
-	
+
 func _physics_process(delta: float) -> void:
 	# 1. Captura de Input (8 direções)
 	var input_vec = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -39,6 +50,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	update_animation(input_vec)
 
+# --- FUNÇÃO DE TROCA DE SKIN (Chamada pelo Menu) ---
+func change_skin_frames(new_frames: SpriteFrames) -> void:
+	if anim and new_frames:
+		anim.sprite_frames = new_frames
+		# Força o play na animação atual para atualizar o visual no mesmo frame
+		anim.play(anim.animation)
+
 func update_animation(input: Vector2) -> void:
 	var state = "idle"
 	
@@ -48,9 +66,11 @@ func update_animation(input: Vector2) -> void:
 		state = "run" if Input.is_action_pressed("run") else "walk"
 	
 	var dir_suffix = get_direction_name(last_direction)
+	var anim_name = state + "_move_" + dir_suffix
 	
-	# Executa a animação baseada nos nomes importados
-	anim.play(state + "_move_" + dir_suffix) #
+	# Verifica se a animação existe na skin atual antes de dar play
+	if anim.sprite_frames.has_animation(anim_name):
+		anim.play(anim_name)
 	
 	# Inverte o sprite horizontalmente para direções esquerdas
 	if last_direction.x != 0:

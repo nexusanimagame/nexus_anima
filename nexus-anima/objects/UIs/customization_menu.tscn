@@ -1,15 +1,19 @@
 [gd_scene format=3 uid="uid://jtr3dn3ylapu"]
 
 [ext_resource type="Script" uid="uid://rp8nmrrgdan8" path="res://customization_menu.gd" id="1_frgo5"]
-[ext_resource type="Texture2D" uid="uid://cvt4kn44r0aou" path="res://assets/talesets/UI/button_xbox_b.png" id="2_fx052"]
-[ext_resource type="Texture2D" uid="uid://beiv0wvcnayun" path="res://assets/talesets/UI/button_xbox_x.png" id="3_86t5f"]
-[ext_resource type="Texture2D" uid="uid://c3ymv7fxs8djp" path="res://assets/talesets/UI/accept.png" id="4_0natq"]
+[ext_resource type="Texture2D" uid="uid://dol04vxwfbmk5" path="res://assets/talesets/UI/skin_button_1.png" id="2_wrl73"]
+[ext_resource type="Texture2D" uid="uid://t2ry82qfolcp" path="res://assets/talesets/UI/skin_button_2.png" id="3_i6t50"]
+[ext_resource type="Texture2D" uid="uid://ib58dxkrm7vy" path="res://assets/talesets/UI/skin_button_3.png" id="4_rnpo8"]
+[ext_resource type="Texture2D" uid="uid://kx5g4vyfks6f" path="res://assets/talesets/UI/skin_button_4.png" id="5_6mphk"]
+[ext_resource type="Texture2D" uid="uid://dju3q6m8ekg68" path="res://assets/talesets/UI/skin_button_5.png" id="6_prhys"]
+[ext_resource type="Texture2D" uid="uid://c6elwa11n8pn8" path="res://assets/talesets/UI/checkmark.png" id="7_fxbui"]
 
 [node name="CustomizationMenu" type="Panel" unique_id=906213139]
 visible = false
 offset_right = 640.0
 offset_bottom = 360.0
 script = ExtResource("1_frgo5")
+caminho_pele_1 = "uid://bve7xwl7woi8a"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=59577242]
 layout_mode = 1
@@ -20,18 +24,33 @@ offset_top = -80.0
 offset_right = 40.0
 grow_vertical = 0
 
-[node name="Vermelho" type="Button" parent="VBoxContainer" unique_id=2103146707]
+[node name="skin_tone_1" type="Button" parent="VBoxContainer" unique_id=2103146707]
 layout_mode = 2
-icon = ExtResource("2_fx052")
+icon = ExtResource("2_wrl73")
 
-[node name="Azul" type="Button" parent="VBoxContainer" unique_id=1223219828]
+[node name="skin_tone_2" type="Button" parent="VBoxContainer" unique_id=1223219828]
 layout_mode = 2
-icon = ExtResource("3_86t5f")
+icon = ExtResource("3_i6t50")
 
-[node name="Sair" type="Button" parent="VBoxContainer" unique_id=1562275540]
+[node name="skin_tone_3" type="Button" parent="VBoxContainer" unique_id=1562275540]
 layout_mode = 2
-icon = ExtResource("4_0natq")
+icon = ExtResource("4_rnpo8")
 
-[connection signal="pressed" from="VBoxContainer/Vermelho" to="." method="_on_vermelho_pressed"]
-[connection signal="pressed" from="VBoxContainer/Azul" to="." method="_on_azul_pressed"]
-[connection signal="pressed" from="VBoxContainer/Sair" to="." method="_on_sair_pressed"]
+[node name="skin_tone_4" type="Button" parent="VBoxContainer" unique_id=1735686973]
+layout_mode = 2
+icon = ExtResource("5_6mphk")
+
+[node name="skin_tone_5" type="Button" parent="VBoxContainer" unique_id=2087684300]
+layout_mode = 2
+icon = ExtResource("6_prhys")
+
+[node name="skip" type="Button" parent="VBoxContainer" unique_id=35875821]
+layout_mode = 2
+icon = ExtResource("7_fxbui")
+
+[connection signal="pressed" from="VBoxContainer/skin_tone_1" to="." method="_on_skin_tone_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/skin_tone_2" to="." method="_on_skin_tone_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/skin_tone_3" to="." method="_on_skin_tone_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/skin_tone_4" to="." method="_on_skin_tone_4_pressed"]
+[connection signal="pressed" from="VBoxContainer/skin_tone_5" to="." method="_on_skin_tone_5_pressed"]
+[connection signal="pressed" from="VBoxContainer/skip" to="." method="_on_skip_pressed"]

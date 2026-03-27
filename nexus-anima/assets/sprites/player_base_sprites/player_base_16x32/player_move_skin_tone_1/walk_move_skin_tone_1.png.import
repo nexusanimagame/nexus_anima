@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3dciss3qvmc7"
-path="res://.godot/imported/notification_sprite.png-5f434a15b2b78c2bc4b28212eb1bb7bd.ctex"
+uid="uid://dvfb11gkuwsp6"
+path="res://.godot/imported/walk_move_skin_tone_1.png-8365d184c0bc6ee19298ebcecd84b70e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player_base_sprites/player_base_16x32/notification_sprite.png"
-dest_files=["res://.godot/imported/notification_sprite.png-5f434a15b2b78c2bc4b28212eb1bb7bd.ctex"]
+source_file="res://assets/sprites/player_base_sprites/player_base_16x32/player_move_skin_tone_1/walk_move_skin_tone_1.png"
+dest_files=["res://.godot/imported/walk_move_skin_tone_1.png-8365d184c0bc6ee19298ebcecd84b70e.ctex"]
 
 [params]
 
