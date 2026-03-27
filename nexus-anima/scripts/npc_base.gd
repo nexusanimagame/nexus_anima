@@ -15,9 +15,9 @@ var is_dialogue_active: bool = false
 
 func _ready():
 	player_ref = get_tree().get_first_node_in_group("player")
+	# Certifique-se que sua DialogueUI está no grupo "dialogue_ui" nas configurações do nó!
 	dialogue_ui = get_tree().get_first_node_in_group("dialogue_ui")
 	
-	# efeito começa invisível
 	if effect_anim:
 		effect_anim.visible = false
 
@@ -27,11 +27,11 @@ func _process(_delta):
 	
 	var dist = global_position.distance_to(player_ref.global_position)
 	
-	# Controle do efeito visual (AnimatedSprite2D2)
+	# Efeito visual de proximidade
 	if dist <= detection_distance:
 		if effect_anim and not effect_anim.visible:
 			effect_anim.visible = true
-			effect_anim.play() # inicia animação
+			effect_anim.play()
 		
 		var dir = (player_ref.global_position - global_position).normalized()
 		update_facing_direction(dir)
@@ -39,16 +39,19 @@ func _process(_delta):
 		if effect_anim and effect_anim.visible:
 			effect_anim.visible = false
 			effect_anim.stop()
-		
 		anim.play("idle_move_front")
 	
-	# Iniciar diálogo (F)
-	if dist <= interact_distance and Input.is_action_just_pressed("interact") and not is_dialogue_active:
-		start_dialogue()
-	
-	# Encerrar diálogo (Enter)
-	if is_dialogue_active and Input.is_action_just_pressed("ui_accept"):
-		end_dialogue()
+	# LÓGICA DE INTERAÇÃO
+	if dist <= interact_distance:
+		# Iniciar com F
+		if Input.is_action_just_pressed("interact") and not is_dialogue_active:
+			start_dialogue()
+		
+		# Tentar fechar com Enter
+		elif is_dialogue_active and Input.is_action_just_pressed("ui_accept"):
+			# SÓ fecha se a DialogueUI já tiver terminado de escrever
+			if dialogue_ui and not dialogue_ui.typing:
+				end_dialogue()
 
 func start_dialogue():
 	if not dialogue_ui:
@@ -56,7 +59,6 @@ func start_dialogue():
 		return
 	
 	is_dialogue_active = true
-	
 	dialogue_ui.start_dialogue(dialogue_text, npc_portrait)
 	
 	if player_ref:
@@ -64,7 +66,6 @@ func start_dialogue():
 
 func end_dialogue():
 	is_dialogue_active = false
-	
 	if dialogue_ui:
 		dialogue_ui.end_dialogue()
 	

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c55mg0xvwcqhg"]
 
-[ext_resource type="Script" uid="uid://d0c3c5i7nrkr1" path="res://npc_base.gd" id="1_31k7x"]
+[ext_resource type="Script" uid="uid://b4hlhgtwyfwg2" path="res://scripts/npc_base.gd" id="1_31k7x"]
 [ext_resource type="Texture2D" uid="uid://hbgdhhlgtp6c" path="res://assets/sprites/player_base_sprites/player_base_16x32/player_base_break.png" id="2_khep2"]
 [ext_resource type="Texture2D" uid="uid://dr3c4eg3x5o52" path="res://assets/sprites/player_base_sprites/player_base_16x32/player_base_idle.png" id="3_cs10d"]
 [ext_resource type="Texture2D" uid="uid://dganm2s6w65eq" path="res://assets/sprites/player_base_sprites/player_base_16x32/player_base_run.png" id="4_ivfjo"]
@@ -666,7 +666,7 @@ script = ExtResource("1_31k7x")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1953807936]
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_lmqb1")
-animation = &"break_move_side"
+animation = &"idle_move_front"
 offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=213783629]

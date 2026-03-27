@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://bmdtv87d00fhp" path="res://assets/talesets/common/exterior/tree/thicket_3.tscn" id="25_e2td3"]
 [ext_resource type="PackedScene" uid="uid://c55mg0xvwcqhg" path="res://objects/players/npc_base.tscn" id="27_x3p2s"]
 [ext_resource type="Texture2D" uid="uid://c74np720tqdt4" path="res://assets/sprites/player_base_sprites/player_base_16x32/player_base_portrait.png" id="28_e2td3"]
-[ext_resource type="PackedScene" uid="uid://gf3drjsx5vti" path="res://objects/dialogue_ui.tscn" id="28_hqyvu"]
+[ext_resource type="PackedScene" uid="uid://gf3drjsx5vti" path="res://objects/UIs/dialogue_ui.tscn" id="28_hqyvu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wwqh7"]
 texture = ExtResource("9_lk680")

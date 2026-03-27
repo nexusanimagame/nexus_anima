@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://gf3drjsx5vti"]
 
-[ext_resource type="Script" uid="uid://c38dwrfatwhvh" path="res://dialogue_ui.gd" id="1_fhybf"]
+[ext_resource type="Script" uid="uid://c38dwrfatwhvh" path="res://scripts/dialogue_ui.gd" id="1_fhybf"]
 [ext_resource type="FontFile" uid="uid://c0r6jul2467fv" path="res://fonts/pixel_operator/PixelOperator8-Bold.ttf" id="2_kjm3o"]
 
 [node name="DialogueUI" type="CanvasLayer" unique_id=1360771935 groups=["dialogue_ui"]]
@@ -16,7 +16,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.78431374)
 
 [node name="DialogBox" type="Panel" parent="." unique_id=1429587903]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(18.892157, 18.892157, 18.892157, 1)
 self_modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(620, 130)
 anchors_preset = 7
@@ -46,10 +46,12 @@ offset_right = 300.0
 offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("2_kjm3o")
 bbcode_enabled = true
 
 [node name="BackPortrait" type="Panel" parent="DialogBox" unique_id=1650605393]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 482.0
 offset_top = -215.0

@@ -9,7 +9,12 @@ var last_direction: Vector2 = Vector2.DOWN
 var is_breaking: bool = false
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
-
+func _ready() -> void:
+	# Garante que a direção inicial seja explicitamente para baixo (frente)
+	last_direction = Vector2.DOWN
+	# Atualiza a animação imediatamente para não esperar o primeiro frame de movimento
+	update_animation(Vector2.ZERO)
+	
 func _physics_process(delta: float) -> void:
 	# 1. Captura de Input (8 direções)
 	var input_vec = Input.get_vector("move_left", "move_right", "move_up", "move_down")
