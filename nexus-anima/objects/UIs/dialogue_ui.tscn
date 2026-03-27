@@ -58,6 +58,25 @@ offset_top = -215.0
 offset_right = 620.0
 offset_bottom = -6.0
 
+[node name="OptionsContainer" type="HBoxContainer" parent="DialogBox" unique_id=1462663881 groups=["dialogue_ui"]]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 137.0
+grow_vertical = 0
+
+[node name="Sim" type="Label" parent="DialogBox/OptionsContainer" unique_id=1018655592]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_kjm3o")
+text = "SIM"
+
+[node name="Nao" type="Label" parent="DialogBox/OptionsContainer" unique_id=275822155]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_kjm3o")
+text = "NÃO"
+
 [node name="Portrait" type="TextureRect" parent="." unique_id=749568395]
 visible = false
 anchors_preset = 1

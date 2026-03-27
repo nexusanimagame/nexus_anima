@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://jtr3dn3ylapu"]
+
+[ext_resource type="Script" uid="uid://rp8nmrrgdan8" path="res://customization_menu.gd" id="1_frgo5"]
+[ext_resource type="Texture2D" uid="uid://cvt4kn44r0aou" path="res://assets/talesets/UI/button_xbox_b.png" id="2_fx052"]
+[ext_resource type="Texture2D" uid="uid://beiv0wvcnayun" path="res://assets/talesets/UI/button_xbox_x.png" id="3_86t5f"]
+[ext_resource type="Texture2D" uid="uid://c3ymv7fxs8djp" path="res://assets/talesets/UI/accept.png" id="4_0natq"]
+
+[node name="CustomizationMenu" type="Panel" unique_id=906213139]
+visible = false
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("1_frgo5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=59577242]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Vermelho" type="Button" parent="VBoxContainer" unique_id=2103146707]
+layout_mode = 2
+icon = ExtResource("2_fx052")
+
+[node name="Azul" type="Button" parent="VBoxContainer" unique_id=1223219828]
+layout_mode = 2
+icon = ExtResource("3_86t5f")
+
+[node name="Sair" type="Button" parent="VBoxContainer" unique_id=1562275540]
+layout_mode = 2
+icon = ExtResource("4_0natq")
+
+[connection signal="pressed" from="VBoxContainer/Vermelho" to="." method="_on_vermelho_pressed"]
+[connection signal="pressed" from="VBoxContainer/Azul" to="." method="_on_azul_pressed"]
+[connection signal="pressed" from="VBoxContainer/Sair" to="." method="_on_sair_pressed"]
