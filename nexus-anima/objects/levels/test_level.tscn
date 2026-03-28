@@ -6469,7 +6469,3 @@ z_index = 1
 [node name="MenuLayer" type="CanvasLayer" parent="." unique_id=134310071]
 
 [node name="CustomizationMenu" parent="MenuLayer" unique_id=906213139 instance=ExtResource("31_hkiuv")]
-caminho_pele_2 = "uid://dua3icbjhgult"
-caminho_pele_3 = "uid://dua3icbjhgult"
-caminho_pele_4 = "uid://dua3icbjhgult"
-caminho_pele_5 = "uid://dua3icbjhgult"
