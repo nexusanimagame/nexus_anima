@@ -1,11 +1,53 @@
 [gd_scene format=3 uid="uid://c2qd7vuidp2ri"]
 
-[ext_resource type="Texture2D" uid="uid://b7l7slybpoa1o" path="res://assets/talesets/UI/menu_inventory/GUI.png" id="1_pt0e8"]
 [ext_resource type="Script" uid="uid://bcs0456nj5iq7" path="res://scripts/pause_menu.gd" id="1_ymjxx"]
+[ext_resource type="Texture2D" uid="uid://dklyj6l6kjnw" path="res://assets/talesets/UI/menu_inventory/pergaminho4.png" id="2_ymjxx"]
+[ext_resource type="Texture2D" uid="uid://cmgvmat6oe0p0" path="res://assets/talesets/UI/menu_inventory/botaoalto-1.png-1.png.png" id="3_dacwm"]
+[ext_resource type="Texture2D" uid="uid://dm8d51yll64lg" path="res://assets/talesets/UI/menu_inventory/pergaminho1.png" id="3_wd462"]
+[ext_resource type="Texture2D" uid="uid://cu6qmd1xodqbi" path="res://assets/talesets/UI/menu_inventory/botaobaixo-1.png-2.png(1)(1).png" id="4_dacwm"]
+[ext_resource type="Texture2D" uid="uid://bdaqebq7k62sx" path="res://assets/talesets/UI/menu_inventory/pergaminho2.png" id="4_eceua"]
+[ext_resource type="Texture2D" uid="uid://dowu6qw7akcba" path="res://assets/talesets/UI/menu_inventory/pergaminho3.png" id="5_eceua"]
+[ext_resource type="Texture2D" uid="uid://dkktblr61iq50" path="res://assets/talesets/UI/menu_inventory/botaoalto-1.png-3.png.png" id="5_qbfxk"]
+[ext_resource type="Texture2D" uid="uid://cmfl72xsan34v" path="res://assets/talesets/UI/menu_inventory/botaobaixo-1.png-4.png(1)(1).png" id="6_ittn3"]
+[ext_resource type="Texture2D" uid="uid://dybx5l2xlbgyv" path="res://assets/talesets/UI/menu_inventory/botaoalto-1.png-5.png.png" id="7_4s0t0"]
+[ext_resource type="Texture2D" uid="uid://c5i1xb67ocnue" path="res://assets/talesets/UI/menu_inventory/botaobaixo-1.png-6.png(1)(1).png" id="8_qbfxk"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ymjxx"]
-atlas = ExtResource("1_pt0e8")
-region = Rect2(16.022694, 271.8688, 144.32698, 144.39005)
+[sub_resource type="Animation" id="Animation_wxc6b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FundoPergaminho:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ymjxx")]
+}
+
+[sub_resource type="Animation" id="Animation_wd462"]
+resource_name = "abrir_pergaminho"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FundoPergaminho:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_wd462"), ExtResource("4_eceua"), ExtResource("5_eceua"), ExtResource("2_ymjxx")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eceua"]
+_data = {
+&"RESET": SubResource("Animation_wxc6b"),
+&"abrir_pergaminho": SubResource("Animation_wd462")
+}
 
 [node name="PauseMenu" type="Control" unique_id=1267114461]
 process_mode = 3
@@ -23,17 +65,58 @@ offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0, 0, 0, 0.5)
 
-[node name="Opções" type="NinePatchRect" parent="Fundo" unique_id=1239310234]
+[node name="FundoPergaminho" type="TextureRect" parent="." unique_id=203935631]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_ymjxx")
+
+[node name="CaixaBotoes" type="VBoxContainer" parent="." unique_id=1581617805]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+offset_left = -106.5
+offset_top = -100.0
+offset_right = 106.5
+offset_bottom = 144.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_ymjxx")
+theme_override_constants/separation = 11
+
+[node name="BtnContinuar" type="TextureButton" parent="CaixaBotoes" unique_id=448466918]
+custom_minimum_size = Vector2(168, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_dacwm")
+texture_pressed = ExtResource("4_dacwm")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="BtnOpcoes" type="TextureButton" parent="CaixaBotoes" unique_id=739003346]
+custom_minimum_size = Vector2(168, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("5_qbfxk")
+texture_pressed = ExtResource("6_ittn3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="BtnMenu" type="TextureButton" parent="CaixaBotoes" unique_id=653388627]
+custom_minimum_size = Vector2(168, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("7_4s0t0")
+texture_pressed = ExtResource("8_qbfxk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1309610047]
+libraries/ = SubResource("AnimationLibrary_eceua")
+
+[connection signal="pressed" from="CaixaBotoes/BtnContinuar" to="." method="_on_btn_continuar_pressed"]
