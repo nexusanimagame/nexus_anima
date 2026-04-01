@@ -1,202 +1,89 @@
 [gd_scene format=3 uid="uid://piw2lk7s6ttc"]
 
-[ext_resource type="Texture2D" uid="uid://b15478floxm5o" path="res://assets/talesets/UI/inventory_UI/UI assets pack 2/UI assets pack 2/UI books & more.png" id="1_v3gtu"]
-[ext_resource type="Texture2D" uid="uid://c1qb2m3oua4yo" path="res://assets/talesets/UI/inventory_UI/UI assets pack 2/UI assets pack 2/UI books & more-1.png.png" id="2_ooihj"]
-[ext_resource type="FontFile" uid="uid://chjdetdu16e8v" path="res://fonts/pixel_operator/PixelOperatorHB.ttf" id="3_10hlf"]
-[ext_resource type="Texture2D" uid="uid://bskkhy3odhhx6" path="res://assets/talesets/UI/inventory_UI/UI assets pack 2/UI assets pack 2/base_inventory.png" id="4_42ag2"]
+[ext_resource type="Script" uid="uid://gcds8a1q2a7r" path="res://objects/UIs/inventory_ui.gd" id="1_0bvci"]
+[ext_resource type="Texture2D" uid="uid://ddxmmk7677o35" path="res://assets/talesets/UI/menu_inventory/bolsa_1.png" id="2_ge4dx"]
+[ext_resource type="Texture2D" uid="uid://chpsq0efjthgp" path="res://assets/talesets/UI/menu_inventory/bolsa_2.png" id="3_dy135"]
+[ext_resource type="Texture2D" uid="uid://ojlt7j1rp2nx" path="res://assets/talesets/UI/menu_inventory/bolsa_3.png" id="4_jdf7k"]
+[ext_resource type="Texture2D" uid="uid://cs37sq55m3tp1" path="res://assets/talesets/UI/menu_inventory/bolsa_4.png" id="5_gqnl3"]
+[ext_resource type="Texture2D" uid="uid://by1yi2vcmkh77" path="res://assets/talesets/UI/menu_inventory/bolsa_5.png" id="6_ke3hu"]
+[ext_resource type="Texture2D" uid="uid://bpyya51sils37" path="res://assets/talesets/UI/menu_inventory/bolsa_6.png" id="7_rxa4c"]
+[ext_resource type="Texture2D" uid="uid://cmnhgucg4acxc" path="res://assets/talesets/UI/menu_inventory/bolsa_7.png" id="8_ctw1r"]
+[ext_resource type="Texture2D" uid="uid://dcffqvfoxtjl6" path="res://assets/talesets/UI/menu_inventory/bolsa_8.png" id="9_gftnb"]
+[ext_resource type="Texture2D" uid="uid://cckukijcflt3c" path="res://assets/talesets/UI/menu_inventory/bolsa_9.png" id="10_w6wi6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v3gtu"]
-atlas = ExtResource("1_v3gtu")
-region = Rect2(720.94073, 64.96122, 46.048096, 45.982803)
+[sub_resource type="Animation" id="Animation_p2tsw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FundoBolsa:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ge4dx")]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x7vge"]
-atlas = ExtResource("2_ooihj")
-region = Rect2(700.7571, 303.84338, 89.33649, 16.223602)
+[sub_resource type="Animation" id="Animation_8gl14"]
+resource_name = "abrir_bolsa"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FundoBolsa:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_ge4dx"), ExtResource("3_dy135"), ExtResource("4_jdf7k"), ExtResource("5_gqnl3"), ExtResource("6_ke3hu"), ExtResource("7_rxa4c"), ExtResource("8_ctw1r"), ExtResource("9_gftnb"), ExtResource("10_w6wi6")]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uxqxc"]
-atlas = ExtResource("4_42ag2")
-region = Rect2(223.83765, 271.67493, 101.36667, 16.5849)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tp1oc"]
+_data = {
+&"RESET": SubResource("Animation_p2tsw"),
+&"abrir_bolsa": SubResource("Animation_8gl14")
+}
 
 [node name="InventoryUI" type="Control" unique_id=1545267434]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_0bvci")
 
-[node name="Panel" type="Panel" parent="." unique_id=962462704]
+[node name="Fundo" type="ColorRect" parent="." unique_id=2073352345]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
+color = Color(0, 0, 0, 0.5)
 
-[node name="Fundo" type="NinePatchRect" parent="." unique_id=2102525781]
+[node name="FundoBolsa" type="TextureRect" parent="." unique_id=1069748066]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -163.5
-offset_top = -163.5
-offset_right = 163.5
-offset_bottom = 163.5
+offset_left = -315.0
+offset_top = -180.0
+offset_right = 315.0
+offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_v3gtu")
-region_rect = Rect2(655.9729, 15.961222, 48.07831, 64.13382)
-patch_margin_left = 12
-patch_margin_top = 12
-patch_margin_right = 12
-patch_margin_bottom = 12
+texture = ExtResource("2_ge4dx")
 
-[node name="intens" type="GridContainer" parent="Fundo" unique_id=1536113209]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -311.0
-offset_top = 60.0
-offset_right = -15.0
-offset_bottom = 253.5
-grow_horizontal = 0
-columns = 6
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2134279386]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Slot1" type="TextureRect" parent="Fundo/intens" unique_id=1267683138]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot17" type="TextureRect" parent="Fundo/intens" unique_id=825191327]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot20" type="TextureRect" parent="Fundo/intens" unique_id=959829396]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot21" type="TextureRect" parent="Fundo/intens" unique_id=1660733612]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot22" type="TextureRect" parent="Fundo/intens" unique_id=824304435]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot23" type="TextureRect" parent="Fundo/intens" unique_id=1735078894]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot24" type="TextureRect" parent="Fundo/intens" unique_id=345170029]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot25" type="TextureRect" parent="Fundo/intens" unique_id=1651750739]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot18" type="TextureRect" parent="Fundo/intens" unique_id=891917050]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot19" type="TextureRect" parent="Fundo/intens" unique_id=1452230722]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot2" type="TextureRect" parent="Fundo/intens" unique_id=1058983403]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot3" type="TextureRect" parent="Fundo/intens" unique_id=121322216]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot4" type="TextureRect" parent="Fundo/intens" unique_id=107247364]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot5" type="TextureRect" parent="Fundo/intens" unique_id=1576603081]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot6" type="TextureRect" parent="Fundo/intens" unique_id=1872586674]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot7" type="TextureRect" parent="Fundo/intens" unique_id=1792510857]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot8" type="TextureRect" parent="Fundo/intens" unique_id=84072777]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot9" type="TextureRect" parent="Fundo/intens" unique_id=623910528]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot10" type="TextureRect" parent="Fundo/intens" unique_id=1869773395]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot11" type="TextureRect" parent="Fundo/intens" unique_id=863237954]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot12" type="TextureRect" parent="Fundo/intens" unique_id=639245562]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot13" type="TextureRect" parent="Fundo/intens" unique_id=196741413]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot14" type="TextureRect" parent="Fundo/intens" unique_id=1367331958]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="Slot15" type="TextureRect" parent="Fundo/intens" unique_id=222533214]
-layout_mode = 2
-texture = SubResource("AtlasTexture_v3gtu")
-
-[node name="area" type="TextureRect" parent="Fundo" unique_id=457574665]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -83.0
-offset_top = 15.0
-offset_right = 83.0
-offset_bottom = 45.0
-grow_horizontal = 2
-texture = SubResource("AtlasTexture_x7vge")
-
-[node name="Inventário" type="Label" parent="Fundo/area" unique_id=1132752706]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -37.5
-offset_top = -8.5
-offset_right = 37.5
-offset_bottom = 9.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_10hlf")
-text = "Inventário"
-
-[node name="base" type="TextureRect" parent="Fundo" unique_id=1695197493]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -125.0
-offset_top = -57.0
-offset_right = 125.0
-offset_bottom = -17.0
-grow_horizontal = 2
-grow_vertical = 0
-texture = SubResource("AtlasTexture_uxqxc")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1921302229]
+process_mode = 3
+libraries/ = SubResource("AnimationLibrary_tp1oc")
