@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://jtr3dn3ylapu"]
 
-[ext_resource type="Script" uid="uid://rp8nmrrgdan8" path="res://customization_menu.gd" id="1_frgo5"]
+[ext_resource type="Script" uid="uid://rp8nmrrgdan8" path="res://scripts/customization_menu.gd" id="1_frgo5"]
 [ext_resource type="Texture2D" uid="uid://dol04vxwfbmk5" path="res://assets/talesets/UI/skin_button_1.png" id="2_wrl73"]
 [ext_resource type="Texture2D" uid="uid://t2ry82qfolcp" path="res://assets/talesets/UI/skin_button_2.png" id="3_i6t50"]
 [ext_resource type="Texture2D" uid="uid://ib58dxkrm7vy" path="res://assets/talesets/UI/skin_button_3.png" id="4_rnpo8"]

@@ -1,41 +1,86 @@
 extends Control
 
+# ==========================================
+# --- REFERÊNCIAS DOS NÓS ---
+# ==========================================
+@onready var fundo = $Fundo
+@onready var fundo_bolsa = $FundoBolsa
+@onready var fundo_grade = $FundoGrade 
+@onready var grade_itens = $GradeItens
+@onready var anim_player = $AnimationPlayer
+
+# Controlo de estado para saber se a mochila está aberta
+var esta_aberto: bool = false
+
+# ==========================================
+# --- INICIALIZAÇÃO ---
+# ==========================================
 func _ready():
-	# O inventário começa escondido
 	visible = false
+	grade_itens.visible = false
+	fundo_grade.visible = false 
+	
+	# Garante que o inventário e a animação funcionem mesmo com o jogo pausado
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	anim_player.process_mode = Node.PROCESS_MODE_ALWAYS
 
-# Essa função escuta o teclado o tempo todo
+# ==========================================
+# --- CONTROLO DE ENTRADA (TECLADO) ---
+# ==========================================
 func _unhandled_input(event):
-	# Se apertar TAB (inventory)
+	# Trava de segurança para não interromper a animação no meio
+	if anim_player.is_playing():
+		return
+
+	# AÇÃO TAB (Abrir/Fechar)
 	if event.is_action_pressed("inventory"):
-		toggle_inventory()
-	
-	# Se apertar ESC (skip) e o inventário estiver aberto
-	elif event.is_action_pressed("skip") and visible:
-		close_inventory()
-		# Impede que o ESC faça outras coisas no jogo ao mesmo tempo
-		get_viewport().set_input_as_handled() 
+		if esta_aberto:
+			_fechar_mochila()
+		else:
+			# Impede de abrir a mochila se o Menu de Pausa (ESC) já estiver a travar o jogo
+			if not get_tree().paused:
+				_abrir_mochila()
+				
+		get_viewport().set_input_as_handled()
 
-func toggle_inventory():
-	if visible:
-		close_inventory()
-	else:
-		open_inventory()
+	# AÇÃO ESC (Apenas Fechar)
+	elif event.is_action_pressed("skip"):
+		if esta_aberto:
+			_fechar_mochila()
+			get_viewport().set_input_as_handled()
 
-func open_inventory():
+# ==========================================
+# --- ANIMAÇÕES E TRAVA DO PLAYER ---
+# ==========================================
+func _abrir_mochila():
+	esta_aberto = true
 	visible = true
-	print("Inventário Aberto")
 	
-	# Trava o movimento do player
-	var player = get_tree().get_first_node_in_group("player")
-	if player:
-		player.set_physics_process(false)
+	# PAUSA O JOGO AQUI: Congela o player e o mundo imediatamente
+	get_tree().paused = true
+	
+	# Esconde a grade e o fundo enquanto a bolsa abre
+	grade_itens.visible = false 
+	fundo_grade.visible = false
+	
+	anim_player.play("abrir_bolsa")
+	await anim_player.animation_finished
+	
+	# Revela o fundo e a grade de itens
+	fundo_grade.visible = true
+	grade_itens.visible = true 
 
-func close_inventory():
-	visible = false
-	print("Inventário Fechado")
+func _fechar_mochila():
+	esta_aberto = false
 	
-	# Devolve o movimento ao player
-	var player = get_tree().get_first_node_in_group("player")
-	if player:
-		player.set_physics_process(true)
+	# Esconde a grade e o fundo imediatamente
+	grade_itens.visible = false 
+	fundo_grade.visible = false
+	
+	anim_player.play_backwards("abrir_bolsa")
+	await anim_player.animation_finished
+	
+	visible = false
+	
+	# DESPAUSA O JOGO AQUI: Devolve o movimento ao player quando a mochila some
+	get_tree().paused = false

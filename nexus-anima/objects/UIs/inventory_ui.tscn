@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://piw2lk7s6ttc"]
 
-[ext_resource type="Script" uid="uid://gcds8a1q2a7r" path="res://objects/UIs/inventory_ui.gd" id="1_0bvci"]
+[ext_resource type="Script" uid="uid://b8ukophi6vra6" path="res://scripts/inventory_ui.gd" id="1_0bvci"]
 [ext_resource type="Texture2D" uid="uid://ddxmmk7677o35" path="res://assets/talesets/UI/menu_inventory/bolsa_1.png" id="2_ge4dx"]
 [ext_resource type="Texture2D" uid="uid://chpsq0efjthgp" path="res://assets/talesets/UI/menu_inventory/bolsa_2.png" id="3_dy135"]
 [ext_resource type="Texture2D" uid="uid://ojlt7j1rp2nx" path="res://assets/talesets/UI/menu_inventory/bolsa_3.png" id="4_jdf7k"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://cmnhgucg4acxc" path="res://assets/talesets/UI/menu_inventory/bolsa_7.png" id="8_ctw1r"]
 [ext_resource type="Texture2D" uid="uid://dcffqvfoxtjl6" path="res://assets/talesets/UI/menu_inventory/bolsa_8.png" id="9_gftnb"]
 [ext_resource type="Texture2D" uid="uid://cckukijcflt3c" path="res://assets/talesets/UI/menu_inventory/bolsa_9.png" id="10_w6wi6"]
+[ext_resource type="Texture2D" uid="uid://x04rl06rvtr0" path="res://assets/talesets/UI/inventory_UI/UI assets pack 2/UI assets pack 2/UI cooking-1.png.png" id="11_dy135"]
+[ext_resource type="Texture2D" uid="uid://oltwwtpjudpx" path="res://assets/talesets/UI/inventory_UI/Free Inventory/Free Inventory/Inventory_select.png" id="11_ge4dx"]
+[ext_resource type="Texture2D" uid="uid://bn760gvgnor86" path="res://assets/talesets/UI/inventory_UI/Free Inventory/Free Inventory/Inventory_select-hover.png" id="13_jdf7k"]
 
 [sub_resource type="Animation" id="Animation_p2tsw"]
 length = 0.001
@@ -48,6 +51,10 @@ _data = {
 &"abrir_bolsa": SubResource("Animation_8gl14")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdf7k"]
+atlas = ExtResource("11_dy135")
+region = Rect2(593.0538, 239.93993, 48.694763, 53.0374)
+
 [node name="InventoryUI" type="Control" unique_id=1545267434]
 process_mode = 3
 layout_mode = 3
@@ -79,11 +86,180 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ge4dx")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2134279386]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1921302229]
 process_mode = 3
 libraries/ = SubResource("AnimationLibrary_tp1oc")
+
+[node name="FundoGrade" type="TextureRect" parent="." unique_id=2086754249]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -81.0
+offset_right = 76.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_jdf7k")
+
+[node name="GradeItens" type="GridContainer" parent="." unique_id=187217194]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -74.0
+offset_right = 70.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="Slot_1" type="TextureButton" parent="GradeItens" unique_id=617643447]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("11_ge4dx")
+texture_hover = ExtResource("13_jdf7k")
+texture_focused = ExtResource("13_jdf7k")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot_2" type="TextureButton" parent="GradeItens" unique_id=91513289]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("11_ge4dx")
+texture_hover = ExtResource("13_jdf7k")
+texture_focused = ExtResource("13_jdf7k")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot_3" type="TextureButton" parent="GradeItens" unique_id=1108093661]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("11_ge4dx")
+texture_hover = ExtResource("13_jdf7k")
+texture_focused = ExtResource("13_jdf7k")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot_4" type="TextureButton" parent="GradeItens" unique_id=214947815]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("11_ge4dx")
+texture_hover = ExtResource("13_jdf7k")
+texture_focused = ExtResource("13_jdf7k")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot_5" type="TextureButton" parent="GradeItens" unique_id=2042317376]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("11_ge4dx")
+texture_hover = ExtResource("13_jdf7k")
+texture_focused = ExtResource("13_jdf7k")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot_6" type="TextureButton" parent="GradeItens" unique_id=808478919]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("11_ge4dx")
+texture_hover = ExtResource("13_jdf7k")
+texture_focused = ExtResource("13_jdf7k")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot_7" type="TextureButton" parent="GradeItens" unique_id=1132644196]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("11_ge4dx")
+texture_hover = ExtResource("13_jdf7k")
+texture_focused = ExtResource("13_jdf7k")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot_8" type="TextureButton" parent="GradeItens" unique_id=341104994]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("11_ge4dx")
+texture_hover = ExtResource("13_jdf7k")
+texture_focused = ExtResource("13_jdf7k")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot_9" type="TextureButton" parent="GradeItens" unique_id=28846432]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("11_ge4dx")
+texture_hover = ExtResource("13_jdf7k")
+texture_focused = ExtResource("13_jdf7k")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot_10" type="TextureButton" parent="GradeItens" unique_id=1965483118]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("11_ge4dx")
+texture_hover = ExtResource("13_jdf7k")
+texture_focused = ExtResource("13_jdf7k")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot_11" type="TextureButton" parent="GradeItens" unique_id=1198444458]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("11_ge4dx")
+texture_hover = ExtResource("13_jdf7k")
+texture_focused = ExtResource("13_jdf7k")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot_12" type="TextureButton" parent="GradeItens" unique_id=1167259070]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("11_ge4dx")
+texture_hover = ExtResource("13_jdf7k")
+texture_focused = ExtResource("13_jdf7k")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot_13" type="TextureButton" parent="GradeItens" unique_id=590931490]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("11_ge4dx")
+texture_hover = ExtResource("13_jdf7k")
+texture_focused = ExtResource("13_jdf7k")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot_14" type="TextureButton" parent="GradeItens" unique_id=1144260309]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("11_ge4dx")
+texture_hover = ExtResource("13_jdf7k")
+texture_focused = ExtResource("13_jdf7k")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot_15" type="TextureButton" parent="GradeItens" unique_id=1229578706]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("11_ge4dx")
+texture_hover = ExtResource("13_jdf7k")
+texture_focused = ExtResource("13_jdf7k")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot_16" type="TextureButton" parent="GradeItens" unique_id=1502204285]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("11_ge4dx")
+texture_hover = ExtResource("13_jdf7k")
+texture_focused = ExtResource("13_jdf7k")
+ignore_texture_size = true
+stretch_mode = 0
